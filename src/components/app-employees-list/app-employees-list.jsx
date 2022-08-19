@@ -1,12 +1,17 @@
 import './app-employees-list.scss'
 import EmployeesListItem from '../app-employees-list-item/app-employees-list-item'
 
-const EmployeesList = () => {
+const EmployeesList = ({ data }) => {
   return (
     <ul className="app-list list-group">
-      <EmployeesListItem name={'John Smith'} salary={"1000$"} />
-      <EmployeesListItem name={'Sam Cutch'} salary={"700$"} />
-      <EmployeesListItem name={'Lara Smith'} salary={"500$"} />
+      {data.map((item) => {
+        return (
+          <EmployeesListItem
+            key={(Math.random() * (9000 - 0) + 0).toFixed(3)}
+            {...item}
+          />
+        )
+      })}
     </ul>
   )
 }
