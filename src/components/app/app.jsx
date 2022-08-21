@@ -19,14 +19,28 @@ function App() {
     setState(state.filter(item => item.id !== id))
   }
 
+  const onAdd = (name, salary) => {
+    const newItem = {
+      name,
+      salary,
+      increase: false,
+      rise: false,
+      id: state.length + 1,
+    }
+    setState(state => state = [...state, newItem])
+  }
+
   const onToggleProp = (id, param, paramValue ) => {
     setState(state => state = state.map(item => item.id === id ? {...item, [param]: !paramValue}: item))
   }
 
+  const employeesCount = state.length
+  const employeesCountToRise = state.filter(item => item.increase === true).length
+
   return (
     <div className="app">
       <div className="container">
-        <AppInfo />
+        <AppInfo employeesCount={employeesCount} employeesCountToRise={employeesCountToRise} />
         <div className="search-panel">
           <AppSearch />
           <AppFilter />
@@ -35,7 +49,7 @@ function App() {
           <EmployeesList data={state} onDelete={deleteItem} onToggleProp={onToggleProp} />
         </div>
         <div className="employees-list-add-form">
-          <EmployeesAddForm />
+          <EmployeesAddForm onAdd={onAdd}  />
         </div>
       </div>
     </div>
