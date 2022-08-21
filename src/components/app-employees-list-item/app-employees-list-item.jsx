@@ -1,24 +1,31 @@
 import { useState } from 'react'
 import './app-employees-list-item.scss'
 
-const EmployeesListItem = ({ name, salary, onDelete }) => {
-  let [rise, setRise] = useState('')
-  let [like, setLike] = useState('')
+const EmployeesListItem = ({
+  name,
+  salary,
+  onDelete,
+  onToggleProp,
+  increase,
+  rise,
+}) => {
+  const [inc, setInc] = useState(increase)
+  const [like, setLike] = useState(rise)
 
-  let listItemClassNames =
-    `app-list-item list-group-item d-flex justify-content-between` + rise + like
-
-  const employeeRise = () => {
-    listItemClassNames.includes('increase') ? setRise('') : setRise(' increase')
-  }
-
-  const employeeLike = () => {
-    listItemClassNames.includes('like') ? setLike('') : setLike(' like')
-  }
+  let listItemClassNames = 'list-group-item d-flex justify-content-between'
+  inc ? (listItemClassNames += ' increase') : (listItemClassNames += '')
+  like ? (listItemClassNames += ' like') : (listItemClassNames += '')
 
   return (
     <li className={listItemClassNames}>
-      <span className="list-group-item-label" onClick={() => employeeLike()}>
+      <span
+        className="list-group-item-label"
+        onClick={() => {
+          onToggleProp
+          setLike(!like)
+        }}
+        data-toggle="rise"
+      >
         {name}
       </span>
       <input
@@ -32,11 +39,19 @@ const EmployeesListItem = ({ name, salary, onDelete }) => {
         <button
           type="button"
           className="btn-cookie btn-sm"
-          onClick={() => employeeRise()}
+          onClick={() => {
+            onToggleProp
+            setInc(!inc)
+          }}
+          data-toggle="increase"
         >
           <i className="fas fa-cookie"></i>
         </button>
-        <button type="button" className="btn-trash btn-sm" onClick={() => onDelete()}>
+        <button
+          type="button"
+          className="btn-trash btn-sm"
+          onClick={() => onDelete()}
+        >
           <i className="fas fa-trash"></i>
         </button>
         <i className="fas fa-star"></i>
