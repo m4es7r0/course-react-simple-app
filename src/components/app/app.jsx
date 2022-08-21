@@ -19,8 +19,8 @@ function App() {
     setState(state.filter(item => item.id !== id))
   }
 
-  const onToggleProp = (id, prop) => {
-    setState(state => state = state.map(item => item.id === id ? {...item, [prop]: ![prop]}: item))
+  const onToggleProp = (id, param, paramValue ) => {
+    setState(state => state = state.map(item => item.id === id ? {...item, [param]: !paramValue}: item))
   }
 
   return (

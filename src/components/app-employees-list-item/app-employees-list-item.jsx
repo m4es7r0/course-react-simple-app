@@ -9,20 +9,17 @@ const EmployeesListItem = ({
   increase,
   rise,
 }) => {
-  const [inc, setInc] = useState(increase)
-  const [like, setLike] = useState(rise)
 
   let listItemClassNames = 'list-group-item d-flex justify-content-between'
-  inc ? (listItemClassNames += ' increase') : (listItemClassNames += '')
-  like ? (listItemClassNames += ' like') : (listItemClassNames += '')
+  increase ? (listItemClassNames += ' increase') : (listItemClassNames += '')
+  rise ? (listItemClassNames += ' like') : (listItemClassNames += '')
 
   return (
     <li className={listItemClassNames}>
       <span
         className="list-group-item-label"
         onClick={() => {
-          onToggleProp
-          setLike(!like)
+          onToggleProp('rise', rise)
         }}
         data-toggle="rise"
       >
@@ -40,8 +37,7 @@ const EmployeesListItem = ({
           type="button"
           className="btn-cookie btn-sm"
           onClick={() => {
-            onToggleProp
-            setInc(!inc)
+            onToggleProp('increase', increase)
           }}
           data-toggle="increase"
         >
