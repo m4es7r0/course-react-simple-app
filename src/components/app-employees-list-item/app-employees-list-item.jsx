@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './app-employees-list-item.scss'
 
 const EmployeesListItem = ({
@@ -16,12 +15,12 @@ const EmployeesListItem = ({
 
   return (
     <li className={listItemClassNames}>
-      <span
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
+      <span // eslint-disable-line jsx-a11y/no-static-element-interactions
         className="list-group-item-label"
         onClick={() => {
           onToggleProp('rise', rise)
         }}
-        data-toggle="rise"
       >
         {name}
       </span>
@@ -39,7 +38,6 @@ const EmployeesListItem = ({
           onClick={() => {
             onToggleProp('increase', increase)
           }}
-          data-toggle="increase"
         >
           <i className="fas fa-cookie"></i>
         </button>
