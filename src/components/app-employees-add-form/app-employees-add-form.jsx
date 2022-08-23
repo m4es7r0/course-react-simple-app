@@ -7,7 +7,7 @@ const EmployeesAddForm = ({ onAdd }) => {
 
   return (
     <div className="app-add-form">
-      <h3>Добавьте нового сотрудника</h3>
+      <h1>Добавьте нового сотрудника</h1>
       <form
         className="add-form d-flex"
         onSubmit={(e) => {
