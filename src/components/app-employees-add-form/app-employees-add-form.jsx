@@ -18,7 +18,7 @@ const EmployeesAddForm = ({ onAdd }) => {
         }}
       >
         <input
-          onChange={(event) => setEmployeeName(event.target.value)}
+          onChange={(e) => setEmployeeName(/^\W|[^\w\s]\./gu.test(e.target.value) ? (e.target.value = '') : e.target.value)}
           value={employeeName}
           type="text"
           className="form-control new-post-label"
@@ -27,7 +27,7 @@ const EmployeesAddForm = ({ onAdd }) => {
           required
         />
         <input
-          onChange={(event) => setEmployeeSalary(event.target.value)}
+          onChange={(e) => setEmployeeSalary(e.target.value)}
           value={employeeSalary}
           type="number"
           className="form-control new-post-label"

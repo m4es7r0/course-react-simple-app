@@ -3,8 +3,8 @@ import './app-search.scss'
 
 const AppSearch = ({ onUpdSearch }) => {
   const [inputState, setInputState] = useState('')
-
   const toSearch = (str) => {
+    console.log(str);
     /^\W|[^\w\s]/g.test(str) ? (str = '') : str
     onUpdSearch(str)
   }
@@ -19,7 +19,7 @@ const AppSearch = ({ onUpdSearch }) => {
       onChange={(e) => {
         toSearch(e.target.value)
         setInputState(
-          /^\W|[^\w\s]/gu.test(e.target.value)
+          /^\W|[^\w\s]/g.test(e.target.value)
             ? (e.target.value = '')
             : e.target.value,
         )

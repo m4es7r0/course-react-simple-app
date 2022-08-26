@@ -11,7 +11,6 @@ const AppFilter = ({ filter, onUpdFilter }) => {
     const active = filter === name
     const clazz = active ? 'btn-light' : 'btn-outline-light'
     
-    
     return (
       <button
         key={name}

@@ -47,7 +47,7 @@ function App() {
   }
 
   const searchEmp = (data, str) => {
-    let searchStr = new RegExp(search, 'gi')
+    let searchStr = new RegExp(str, 'giu')
     if (str.length === 0) return data
     return data.filter(item => item.name.match(searchStr))
   }
