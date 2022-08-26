@@ -10,7 +10,7 @@ function App() {
   const data = [
     { name: 'John C.', salary: 800, increase: false, rise: true, id: 1 },
     { name: 'Alex M.', salary: 3000, increase: true, rise: false, id: 2 },
-    { name: 'Carl W.', salary: 5000, increase: false, rise: false, id: 3 }
+    { name: 'Carl W.', salary: 5000, increase: false, rise: false, id: 3 },
   ]
   const [state, setState] = useState(data)
   const [search, setSearch] = useState('')

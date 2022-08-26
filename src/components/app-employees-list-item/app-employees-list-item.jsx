@@ -22,7 +22,7 @@ const EmployeesListItem = ({
           onToggleProp('rise', rise)
         }}
       >
-        {name}
+        {name.length > 18 ? name.slice(0, 15)+'...' : name}
       </span>
       <input
         type="text"
