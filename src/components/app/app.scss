@@ -1,18 +1,171 @@
-.app {
-    width: 100vw;
-    height: 100vh;
+* {
+    outline: 1px solid red;
+}
+.container {
+    max-width: 900px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    max-width: 1000px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 @media (max-width: 1280px) {
     .container {
-        max-width: 700px;
+        max-width: 750px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 767.5px) {
+    .container {
+        max-width: 450px;
+
+        h1 {
+            font-size: calc(1.325rem + .1vw);
+        }
+
+        h2 {
+            font-size: calc(1.1rem + .1vw);
+        }
+
+        input {
+            font-size: .8rem;
+        }
+
+        button {
+            max-width: 100%;
+            font-size: 12px;
+            height: 50%;
+        }
+    }
+
+    .add-form {
+        flex-direction: column;
+
+        .form-control {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    .employees-list {
+        ul {
+            li {
+                height: 4rem;
+
+                & input,
+                span {
+                    font-size: 14px;
+                }
+
+                input {
+                    width: 23%;
+                }
+
+                span {
+                    width: 37%;
+                }
+
+                div>* {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                }
+
+                div {
+                    width: 30%;
+                    height: 100%;
+
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0;
+
+                        i {
+                            height: 30%;
+                            transform: translateY(-50%);
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375.5px) {
+    .container {
+        max-width: 320px;
+
+        h1 {
+            font-size: calc(1.325rem + .1vw);
+        }
+
+        h2 {
+            font-size: calc(1.1rem + .1vw);
+        }
+
+        input {
+            font-size: .9rem;
+        }
+
+        button {
+            max-width: 100%;
+            font-size: 12px;
+            height: 50%;
+        }
+    }
+
+    .list-group-item {
+        &>* {
+            width: 40%;
+        }
+
+        &>span {
+            font-size: 10rem;
+        }
+    }
+
+    .employees-list {
+        ul {
+            li {
+                height: 4rem;
+
+                & input,
+                span {
+                    font-size: 12px;
+                }
+
+                input {
+                    width: 21%;
+                }
+
+                span {
+                    width: 39%;
+                }
+
+                div>* {
+                    width: 2rem;
+                    height: 1.4rem;
+                }
+
+                div {
+                    width: 30%;
+                    height: 100%;
+                    button {
+                        display: flex;
+                        padding: 0;
+                        width: 100%;
+
+                        i {
+                            height: 30%;
+                            transform: translateY(-50%);
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

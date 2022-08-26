@@ -4,12 +4,13 @@ const AppFilter = ({ filter, onUpdFilter }) => {
   const buttonsData = [
     { name: 'all', label: 'Все сотрудники' },
     { name: 'toRise', label: 'На повышение' },
-    { name: 'moreThan1k', label: 'ЗП больше 1000$' },
+    { name: 'moreThan1k', label: 'ЗП > 1000$' },
   ]
 
   const buttons = buttonsData.map(({ name, label }) => {
     const active = filter === name
     const clazz = active ? 'btn-light' : 'btn-outline-light'
+    
     
     return (
       <button
