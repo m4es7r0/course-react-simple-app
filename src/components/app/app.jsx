@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import './app.scss'
+import ErrorBoundary from '../app-error-boundary/ErrorBoundary'
 import AppInfo from '../app-info/app-info'
 import AppSearch from '../app-search/app-search'
 import AppFilter from '../app-filter/appfilter'
@@ -14,7 +15,7 @@ class App extends Component {
         { name: 'Alex M.', salary: 3000, increase: true, rise: true, id: 2 },
         { name: 'Carl W.', salary: 5000, increase: false, rise: false, id: 3 }
       ],
-      term:''
+      term: ''
     }
   }
 
@@ -52,26 +53,28 @@ class App extends Component {
   }
 
   render() {
-    const {data, term} = this.state
+    const { data, term } = this.state
     const visibleData = this.onSearchEmp(data, term)
 
     return (
       <div className="app">
         <div className="container">
-          <AppInfo EmployeesCount={this.state.data} />
-          <div className="search-panel">
-            <AppSearch />
-            <AppFilter />
-          </div>
-          <div className="employees-list">
-            <EmployeesList
-              data={visibleData}
-              onDelete={this.deleteItem}
-              onToggleProp={this.onToggleProp} />
-          </div>
-          <div className="employees-list-add-form">
-            <EmployeesAddForm onAdd={this.addItem} />
-          </div>
+          <ErrorBoundary>
+            <AppInfo EmployeesCount={this.state.data} />
+            <div className="search-panel">
+              <AppSearch />
+              <AppFilter />
+            </div>
+            <div className="employees-list">
+              <EmployeesList
+                data={visibleData}
+                onDelete={this.deleteItem}
+                onToggleProp={this.onToggleProp} />
+            </div>
+            <div className="employees-list-add-form">
+              <EmployeesAddForm onAdd={this.addItem} />
+            </div>
+          </ErrorBoundary>
         </div>
       </div>
     )
